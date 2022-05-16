@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>NSU Complain App - SDS</title>
+	<style>
+		body {
+			padding: 30px;
+		}
+
+		.cover {
+			padding-right: 20px;
+			padding-top: 50px;
+		}
+
+		.cover * {
+
+			text-align: right;
+		}
+
+		@media print {
+			input#btnPrint {
+				display: none;
+			}
+		}
+
+
+		h1 {
+			font-size: 45px;
+		}
+
+		h2 {
+			font-size: 35px
+		}
+
+		h3 {
+			font-size: 30px;
+		}
+
+		h4 {
+			font-size: 25px;
+		}
+
+		h5 {
+			font-size: 18px;
+		}
+
+		.toc_holder {
+			border-bottom: 2px dotted #333;
+			clear: both;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.toc_holder div:nth-child(1) {
+			display: inline-block;
+		}
+
+		.toc_holder div:nth-child(2) {
+			display: inline-block;
+			float: right;
+		}
+
+
+		.toc_sub {
+
+			display: block;
+			clear: both;
+			padding-left: 40px;
+			margin-bottom: 10px;
+		}
+
+		.new_page {
+			page-break-after: always;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="cover new_page" style="text-align: right; display: block;">
+		<h1>Software Design Specification</h1>
+		<h3>for</h3>
+		<h2>NSU Complain Portal</h2>
+		<h4>Version 1.0</h4>
+		<h4>Prepared by </h4>
+		<h4>North South University</h4>
+		<h4>April 23, 2022</h4>
+
+		<input type="button" id="btnPrint" onclick="window.print();" value="Print" />
+
+	</div>
+
+	
+
+<br><br>
+
+<br><br>
+
+	<h3>1. Introduction</h3>
+	<br>
+	<h4>1.1 Purpose</h4>
+	<p>
+		The goal of this document is to provide a comprehensive overview of the NSU Complain Portal. It will describe the system's purpose and characteristics, as well as the system's interfaces, what the system will do, the limitations that it must operate with, and how the system will react to external things. This document is intended for
+			both the users and the developers of the system and will be proposed to Nabeel Mohammed Sir for its
+			approval.
+	</p>
+<br>
+	<h3>2. Document Convention</h3>
+	<p>
+		<p> <img src="Desc.jpg" alt="System Archietecture">
+		</img>
+	</p>
+		
+	</p>
+	<br>
+	<h3>3. Description of design components</h3>
+	
+	<p> A login screen will be shown as a user open the app. There the user will able to enter the information manually and scan his/her ID card by
+		clicking on a button and then submit it. After login,
+		user will see the complain, logout menu. During login, app will detect the user type, whether the user is teacher, student or staff.
+		<br>
+<br>
+		<h3>4. High level component design</h3>
+		<p>
+			Unregistered students/faculties/staff can choose to regsiter account using their valid name, Scan photo of NSU ID card, NSU email address and password. System checks the validity of the e-mail address and creates an account. If the user credintials are valid, then they can access the homepage. The email address entered is registered before. The actor gets prompted with an error message "This
+			e-mail exist already". The actor either chooses to use a valid email address or creates one first. The email address or password entered is/are incorrect. An error message pops up "Your email address
+			or pasword is/are incorrect". The actor types in the correct information or chooses "forgot
+			password" if he/she wants to.
+		</p>
+		<br>
+		<h3>5. Class Diagrams</h3>
+		<img src="Class-Diagram.jpg" alt="UML">
+			</img>
+			<p> From the figure above, it can be seen that there are Four classes (Student, Faculty, Staff and Admin) sharing
+				common attributes and inherited from Person class that holds the shared attributes, they represent
+				the actors of the system. And there is a Profile class which is linked to Person Class. Also, there is a Complain Class, which means studnets and faculty can create complain and Admin & Staff can edit or close the complain. </p>
+<br><br>
+				<img src="class1.jpg" alt="UML">
+			</img>
+			<img src="class2.jpg" alt="UML">
+			</img>
+			<img src="class3.jpg" alt="UML">
+			</img>
+
+
+			<h3> 6. Database design</h3>
+			<br>
+			<h4> ER diagram</h4>
+			   
+			 <p>
+		    	
+                 <img src= "ERD.jpg" width="1500" height="600">
+			      </img>
+
+			</p>
+<br>
+			<h3>7. Implementation Plan </h3>
+
+			  <p> 
+				The NSU Complain APP will give users a variety of login and registration choices. Users will have the choice of manually registering or using Google account services, which will give the software with information from the user's Google account. Later on, Google account services can be expanded to allow users to log in using their Google accounts; in this scenario, users must be logged in or connect to their NSU email accounts in order for the app to authenticate them. Users can't login or register without NSU valid email. For Registration, the user will take a picture of their NSU ID. Users can upload the complain form. Then system admin can edit the form. Users must have to submit valid evidence for submitting the form. Users can upload any size of picture or voice documents. Check if the file is a valid document. If time favors us, we are planning to turn the system into a complete web-based application.
+			  </p>  
+
+
+
+</body>
+
+</html>

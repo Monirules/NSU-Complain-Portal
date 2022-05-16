@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>NSU Complain Portal - SRS</title>
+	
+	
+	<style>
+		body {
+			padding: 10%;
+		}
+
+		.cover {
+			padding-right: 20px;
+			padding-top: 10px;
+			text-align: right;
+		}
+
+		a{
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover{
+			font-size: 21px;
+			transition: 0.3s;
+		}
+
+		h1 {
+			font-size: 45px;
+		}
+
+		h2 {
+			font-size: 35px
+		}
+
+		h3 {
+			font-size: 30px;
+		}
+
+		h4 {
+			font-size: 25px;
+		}
+
+		h5 {
+			font-size: 18px;
+		}
+		@media print {
+			input#btnPrint {
+				display: none;
+				
+			}
+		}
+		.toc_holder {
+			border-bottom: 2px dotted #333;
+			clear: both;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.toc_holder div:nth-child(1) {
+			display: inline-block;
+		}
+		.toc_holder div:nth-child(2) {
+			display: inline-block;
+			float:right;
+		}
+		.toc_sub {
+
+			display: block;
+			clear: both;
+			padding-left: 40px;
+			margin-bottom: 10px;
+		}
+
+		.new_page {
+			page-break-after: always;
+		}
+	</style>
+</head>
+
+
+
+<body>
+	<div class="cover new_page" style="text-align: right; display: block;">
+		<hr><br>
+		<h1>Software Requirements Specification</h1>
+		<h3>for</h3>
+		<h2>NSU Complain Portal</h2>
+		<h4>Version 1.0</h4>
+		<h4>Prepared by - Hafeza Akter, Monirul Islam Mahmud</h4>
+		<h4>Shahariar Rahman, Khurshid Jahan</h4>
+		<h4>North South University</h4>
+		<h4>March 19, 2022</h4>
+		<br>
+		<button id="btnPrint" style="margin-top: 20px; padding: 10px 20px" onclick="window.print()">Print</button>
+	</div>
+	<br />
+
+
+	<div class="table_of_contents new_page">
+
+		<h4>Table of Contents</h4>
+		<div class="toc_holder">
+			<div>Table of Contents</div>
+			<div>i</div>
+		</div>
+
+		<div class="toc_holder">
+			<div>Revision History</div>
+			<div>ii</div>
+		</div>
+
+		<div class="toc_holder">
+			<a href="#go1">1. Intrduction</a>
+			<div>1</div>
+		</div>
+
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div>1.1 Purpose</div>
+				<div>1</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>1.2 Document Conventions </div>
+				<div>1</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>1.3 Intended Audience and Reading Suggestions </div>
+				<div>1</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>1.4 Product Scope </div>
+				<div>1</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>1.5 References </div>
+				<div>1</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href="#go2">2 Overall Description</a></div>
+			<div>2</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div>2.1 Product Perspective </div>
+				<div>2</div>
+			</div>
+			<div class="toc_holder">
+				<div>2.2 Product Functions</div>
+				<div>2</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>2.3 User Classes and Characteristics</div>
+				<div>2</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>2.4 Operating Environment </div>
+				<div>2</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>2.5 Design and Implementation Constraints </div>
+				<div>3</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>2.6 User Documentation</div>
+				<div>3</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>2.7 Assumptions and Dependencies </div>
+				<div>3</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href="#go3">3 External Interface Requirements</a> </div>
+			<div>4</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div>3.1 User Interfaces </div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>3.2 Hardware Interfaces </div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>3.3 Software Interfaces </div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>3.4 Communications Interfaces </div>
+				<div>4</div>
+			</div>
+		</div>
+
+
+		<div class="toc_holder">
+			<div><a href="#go4">4 System Features</a> </div>
+			<div>6</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div>4.1 Registration and Login </div>
+				<div>6</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>4.2 Upload any Complain </div>
+				<div>6</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>4.3 Facial Detection & Eye Tracking Report </div>
+				<div>7</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href="#go5">5 Other Nonfunctional Requirements</a> </div>
+			<div>8</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div>5.1 Performance Requirements </div>
+				<div>8</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>5.2 Safety Requirements</div>
+				<div>8</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>5.3 Security Requirements</div>
+				<div>8</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>5.4 Software Quality Attributes</div>
+				<div>8</div>
+			</div>
+
+			<div class="toc_holder">
+				<div>5.5 Business Rules</div>
+				<div>8</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href="#go6">6 Other Requirements</a></div>
+			<div>10</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href="#go7">Appendix A: Glossary</a></div>
+			<div>10</div>
+		</div>
+
+		<div class="toc_holder" >
+			<div><a href="#go8">Appendix B: To Be Determined List </a></div>
+			<div>10</div>
+		</div>
+<br>
+		<div class="toc_holder">Revision History: 
+		</div>
+		<br>
+		<div>
+			<table border="1" CELLSPACING=0>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Reason for changes</th>
+					<th>Version</th>
+				</tr>
+				<tr>
+					<td>No</td>
+					<td>No</td>
+					<td>No</td>
+					<td>No</td>
+				</tr>
+				<tr>
+					<td>No</td>
+					<td>No</td>
+					<td>No</td>
+					<td>No</td>
+				</tr>
+				
+			</table>
+		</div>
+	</div>
+
+	<br><br><br>
+	<div class="new_page">
+
+		<h3 id="go1">1. Introduction</h3>
+		<br>
+		<h4>1.1 Purpose</h4>
+		<p>
+			The goal of this document is to provide a comprehensive overview of the NSU Complain Portal. It will describe the system's purpose and characteristics, as well as the system's interfaces, what the system will do, the limitations that it must operate with, and how the system will react to external things. This document is intended for
+			both the users and the developers of the system and will be proposed to Nabeel Mohammed Sir for its
+			approval.
+		</p>
+
+		<h4>1.2 Document Conventions</h4>
+		<p>
+			The IEEE SRS template was used to style the document. We used Times at 18 and 14 for the Chapter and Topic headings, respectively, and Arial at 11 for the body for text styling.
+		</p>
+
+		<p>Some abbreviations and their meaning:</p>
+
+		<table border="2" CELLSPACING=0>
+			<tr>
+				<th>Abbreviations</th>
+				<th>Meaning</th>
+			</tr>
+			<tr>
+				<td>IEEE</td>
+				<td>Institute of Electrical and Electronics Engineers</td>
+			</tr>
+			<tr>
+				<td>SRS</td>
+				<td>Software Requirements Specification
+				</td>
+			</tr>
+		</table>
+
+		<h4>1.3 Intended Audience and Reading Suggestions </h4>
+		<p>This document is intended for staff, users, testers, developers and project managers </p>
+
+
+		<h4>1.4 Product Scope</h4>
+		<p>The software system will be designed to help students or teachers against any kind of harrassment. Any users of this system can allow to submit a form with an evidence. Thus any harrassment can be easily handled by the authoriity.More specifically, this system is designed to allow students and techers to register and login then file a complaint. The system admin will get the data of the complaint. An email will be sent to the user and the person who is accused. </p>
+
+
+	</div>
+
+
+
+<br><br>
+	<div class="new_page">
+		<h3 id="go2">2. Overall Perspective</h3>
+
+		<h4>2.1 Product Perspective</h4>
+		<p>The system was designed to take the information about any kind of hassle or complain from the teachers or students</p>
+
+		<h4>2.2 Product Functions</h4>
+		<p>The major functionalities of the system are described below:
+			<ul>
+				<li>Students/Teachers can create accounts by scanning their NSU ID card and giving proper details</li>
+				<li>All the information will store in the database and will show in the Profile menu</li>
+				<li>The victim have to submit the necessary evidence and proper information of complain in the form.</li>
+				<li>All the complain will go to the system admin, an email will also be sent to the user and the accused person.</li>
+				<li>System admin an change any kind of information</li>
+			</ul>
+		</p>
+		<h4>2.3 User Classes and Characteristics</h4>
+		<p>There will be three user classes in the system:
+			<ol>
+				<li>System Administrators:<br>
+					<ul>
+						<li>They Have full access to databases.</li>
+						<li>They Can create and suspend Users – teachers & students.</li>
+						<li>They Handle all the complain form</li>
+					</ul>
+				</li>
+				<li>Users:<br>
+					<ul>
+						<li>Register and Login.</li>
+						<li>Add a complain via the form.</li>
+						<li>Can't access the homepage without proper validation.</li>
+						<li>Will get an email after submitting complain.</li>
+					</ul>
+				</li>
+			</ol>
+		</p>
+		<h4>2.4 Operating Environment</h4>
+		<p>
+			<ol>
+				<li>Backend:<br>
+					<ul>
+						<li>Hardware Platform: x64</li>
+						<li>Operating System: Windows, MacOS, Linux</li>
+						<li>Programming Language: Python 3.7</li>
+						<li>Web Framework: Django 2.2</li>
+						<li>Database: SQLite</li>
+					</ul>
+				</li>
+				<li>Frontend:<br>
+					<ul>
+						<li>Android App: <br>
+							<ol>
+								<li>Hardware Platform: arm</li>
+								<li>Operating System: Android 6.0+</li>
+								<li>Programming Language: Java & Kotlin</li>
+							</ol>
+						</li>
+						<li>Web App:<br>
+							<ol>
+								<li>Framework: Django</li>
+								<li>Design: HTML, CSS, Bootstrap</li>
+							</ol>
+						</li>
+					</ul>
+				</li>
+			</ol>
+		</p>
+		<h4>2.5 Design and Implementation Constraints</h4>
+		
+			<ul>
+				
+				<li>The backend should publish APIs which should be easily integrated with the existing University
+					platform like RDS.</li>
+				<li>The system needs to be designed with an existing standard web framework.</li>
+				
+			</ul>
+		</p>
+
+		<h4>2.6 User Documentation</h4>
+		<p>The system is designed to be intuitive and user friendly.</p>
+
+		<h4>2.7 Assumptions and Dependencies</h4>
+		<p>The system don't use any external API for accomplishing complicated tasks. We only used Googe Sign in API for login.
+		
+	</div>
+<br><br>
+	<!-- Interfaces -->
+
+	<div class="new_page">
+
+		<h3 id="go3">3. External Interface Requirements</h3>
+<br>
+		<h4>3.1 User Interfaces</h4>
+
+		
+		<p>A login screen will be shown as a user open the app. There the user will able to enter the information manually and scan his/her ID card by
+			clicking on a button and then submit it. After login,
+			user will see the complain, logout menu. During login, app will detect the user type, whether the user is teacher, student or staff. Then user can upload the </p>
+
+
+		<h4>3.2 Hardware Interfaces</h4>
+
+		<h5>Client Devices:</h5>
+		
+				Android, iOS, Laptop, Desktop
+				<br>
+				OS: Android 6.0+, iOS,  Windows, MacOS
+				<br>
+				CPU: 1 GHz or faster
+				<br>
+				RAM: 1 GB or more.
+				<br>
+				Wireless: 802.11b/n/ac
+				<br>
+				Front Camera: 3 MP or more
+			
+	
+
+		<h4>3.3 Software Interfaces</h4>
+
+		<p> SQLite database will be used to store the data. We will use Django framework for designing and implementing the website.</p>
+
+
+		<h4>3.4 Communications Interfaces</h4>
+
+		<p>The app will use email to send all the information given in the form to the victim and the accused person.  </p>
+
+
+	</div>
+
+	<br><br>
+	<!-- System Features -->
+
+	<div class="new_page">
+
+		<h3 id="go4">4. System Features
+			<p>
+				<br>
+				<img src="use_case.jpg" alt="UCD">
+				</img>
+				
+				<br>
+
+				<h4> UML Expanded Use Case</h4>
+				<p><b>1) Use case name:</b> Register & Login<br>
+					</br>Actors: Faculty, Student, Staff<br>
+					</br> Type: Primary<br>
+					</br>Brief Overview: Unregistered students/faculties/staff can choose this option to regsiter 
+					account using their valid name, Scan photo of NSU ID card, NSU email address and password.
+				</p>
+
+				
+				<h5>Typical Courses of Events:</h5>
+				<table style="width:100%" border="1" CELLSPACING=0>
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>Actor goes to the website </td>
+						<td>System reponds with the Register page of the website </td>
+					</tr>
+					<tr>
+						<td>Actor clicks the "Register" option to sign up for an account </td>
+						<td>System checks the validity of the e-mail address and creates an account </td>
+					</tr>
+					<tr>
+						<td>After register, user can login with the email and password. </td>
+						<td>If the user credintials are valid, then they can access the homepage. </td>
+					</tr>
+
+				</table>
+				<h5> Alternative Courses of Events:</h5>
+				<p>(i) The email address entered is registered before. The actor gets prompted with an error message "This
+					e-mail exist already". The actor either chooses to use a valid email address or creates one first.
+				</p>
+				<p>(ii) The email address or password entered is/are incorrect. An error message pops up "Your email address
+					or pasword is/are incorrect". The actor types in the correct information or chooses "forgot
+					password" if he/she wants to.</p>
+
+				<br>
+				
+
+				<p><b>2) Use case name: </b> Submitting complain<br>
+					</br>Actors: Student/ Faculty<br>
+					</br> Type: Primary<br>
+					</br>Brief Overview: Faculty or teachers can submit the complain form with an proper evidence. 
+				</p>
+				<h5>Typical Courses of Events:</h5>
+				<table style="width:100%" border="1" CELLSPACING=0>
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>Users after login, they can complain a file. </td>
+						<td>System will redirect them to the complain page. </td>
+					</tr>
+					<tr>
+						<td>Users after completing all the information, press the send button. </td>
+						<td>System decides if it's a valid or not and then respond by updating their page. </td>
+					</tr>
+					
+
+				</table>
+				<h5> Alternative Courses of Events:</h5>
+				<p>If any information didn't properly answered via users, then no response will be send.</p>
+
+				<br>
+
+				<p> <b> 3) Use case name: </b> Update users and secure the data in database <br>
+					</br>Actor: System Admin<br>
+					</br> Type: Secondary<br>
+					</br>Brief Overview: The system admin is logged into the system and can update information about the
+					student/faculty. The admin can choose to edit, add or remove any accounts & has complete control of the database.
+				</p>
+				<h5>Typical Courses of Events:</h5>
+				<table style="width:100%" border="1" CELLSPACING=0>
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>Admin chooses to update the user by clicking on the specific person's information </td>
+						<td> System will update the user info.</td>
+					</tr>
+					<tr>
+						<td>Admin clicks "update" and press "save" on the admin panel.</td>
+						<td> All the changes will be saved by the system. </td>
+					</tr>
+					<tr>
+						<td>Admin will get the submitted complain information and can edit the info.</td>
+						<td>The system edits the complain information.</td>
+					</tr>
+
+				</table>
+
+				
+		</h3>
+
+		<h4>4.1 Registration with NSU valid info or Google sign in</h4>
+
+		<h5>4.1.1 Description and Priority</h5>
+
+		<p>Students can register by scanning their NSU ID & can login using their northsouth.edu email.</p>
+
+		<h5>4.1.2 Stimulus/Response Sequences</h5>
+
+		<p>For Registration, the user will take a picture of their NSU ID and the user
+			will create an account with their valid northsouth.edu email, NSU id and password.</p>
+
+		<h5>4.1.3 Functional Requirements</h5>
+
+		<ul>
+			<li>The system will ensure only North South University students can access the system and the system will use the
+				id card data to recognize the user.</li>
+		</ul>
+
+		
+
+		<h4>4.2 Upload Complain</h4>
+
+		<h5>4.2.1 Description and Priority</h5>
+
+		<p> Users can upload the complain form. Then system admin can edit the form.</p>
+
+		<h5>4.2.2 Stimulus/Response Sequences</h5>
+
+		<p>Users must have to submit valid evidence for submitting the form.</p>
+
+		<h5>4.2.3 Functional Requirements</h5>
+
+		<p>Users can upload any size of picture or voice documents. Check if the file is a valid document.</p>
+		
+	</div>
+
+
+
+	<div class="new_page">
+		<h3 id="go5">5. Non-Functional Requirements</h3>
+		<h4>5.1 Perfomance Requirement</h4>
+		<p> The system should be able to render pictures.</p>
+
+
+		<h4>5.2 Safety Requirements</h4>
+		<ul>
+			
+		Using false identification. (Fake ID)
+		</ul>
+		
+		<h4>5.3 Security Requirement</h4>
+		<ul>
+			<li>The system will be secured and will respect the users privacy. 
+			</li>
+			<li> Only the administrator has the rights to manage any changes in the system.
+				Only the administrator has the rights to manage any changes in the stored data set.</li>
+			
+			
+			<li>Students will require username and password to log into their individual account.</li>
+			
+		</ul>
+
+
+		<h4>5.4 Software Quality Attributes</h4>
+		<ul>
+			
+			<li> The User interface of the system will be user friendly.</li>
+			<li> The system must be flexible. Should be easily modified.</li>
+			<li> Execution process must be fast and responsive.</li>
+			<li> The software is a web-based application and is built in Python and SQLite, so it's
+				platform independent.</li>
+			
+		</ul>
+
+
+		<h4>5.5 Business Rules</h4>
+		<ul>
+			<li>
+				<b>Administrator Requirement:</b> Have a complete control to the system. They will be able to edit,
+				add/remove any user and update the form information.
+			</li>
+			<li> <b>User Requirement:</b> They can access to the homepage agter valid login. After successfully login, they can 
+				add a complain to the authority. 
+			</li>
+			
+		</ul>
+	</div>
+
+
+
+	<!-- part 6 starts here !-->
+
+	<div class="new_page">
+
+		<h3 id="go6"> 6. Other Requirements </h3>
+		<h4> Database : </h4>
+		<p> All the data will be stored in a relational database. </p>
+
+		<h4 id="go7">Appendix A: Glossary </h4>
+		<table style="width:100%" border="1" CELLSPACING=0>
+			<tr>
+				<th>Term</th>
+				<th>Definition</th>
+			</tr>
+			<tr>
+				<td>Database </td>
+				<td>Collection of all the information monitored by this system. </td>
+			</tr>
+			<tr>
+				<td>Student </td>
+				<td>A student of the class listed in the University database. </td>
+			</tr>
+			<tr>
+				<td>Teacher </td>
+				<td>Teacher of the class listed in the University database .</td>
+			</tr>
+			<tr>
+				<td> Software Requirements Specification </td>
+				<td>A document that completely describes all of the functions of a proposed system and the constraints
+					under which it must operate. For example, this document.</td>
+			</tr>
+			<tr>
+				<td>Stakeholder </td>
+				<td>Any person with an interest in the project who is not a developer. </td>
+			</tr>
+			<tr>
+				<td>User </td>
+				<td>Teacher or Student. </td>
+			</tr>
+			<tr>
+				<td>Facial Detection </td>
+				<td>A facial recognition system uses biometrics to map facial features from a photograph or video.</td>
+			</tr>
+			<tr>
+				<td> Eye Tracking </td>
+				<td>Eye tracker system detect eye movement and also measure the point of gaze (where one is looking) .
+				</td>
+			</tr>
+			<tr>
+				<td>Dashboard </td>
+				<td>Where teacher can monitor and check student?s activity and student can see their attendance and
+					assignment. </td>
+			</tr>
+		</table>
+		<h4 id="go8">Appendix B: To Be Determined List </h4>
+		<p> If time favors us, we are planning to turn the system into a complete web-based application. </p>
+
+	</div>
+
+</body>
+</html>
