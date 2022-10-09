@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 mx-auto p-4">
+           <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <h3 class="text-danger">Are you sure want to delete?</h3>
+                    <img src="{{mymember.image}}" height="200" width="100%">
+                    <h4>{{mymember.complain}}</h4>
+                    <div class="mt-4">
+                        <a href="{% url 'delete' %}?pid={{mymember.id}}&&action=confirm" class="btn btn-danger">Confirm Delete</a>
+                        <a href="{% url 'complain' %}" class="btn btn-warning">Cancel</a>
+                    </div>
+                </div>
+           </div>           
+        </div>
+    </div>
+</div>
+
+{% if status %}
+
+<script>
+    alert("{{status}}");
+    window.location = "/complain"
+
+</script>
+
+{% endif %}

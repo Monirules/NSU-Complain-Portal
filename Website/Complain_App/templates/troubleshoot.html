@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+    />
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+    
+    <title>Troubleshoot / Contact</title>
+
+    <style>
+        *{
+        
+        }
+        
+        .nav {
+        display: şex;
+        width: 100%;
+        height: 62px;
+        background: linear-gradient(to left, blue, purple, red);
+        align-items: center;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 18px;
+        } 
+
+                
+        .form {
+        color: rgb(199, 22, 51);
+        padding-left: 321px;
+        outline: none;
+        border: 0px solid;
+        } 
+
+        .heading2 {
+        text-align: center;
+        color: rgb(199, 22, 51);
+        font-size: larger;
+        font-weight: bold;
+        margin-top: 55px;
+        } 
+
+        .nav-link{
+            color: aliceblue;
+        }
+
+        #messages{
+            margin-top: 20px;
+            font-weight: bold;
+            color: Lime;
+            font-size: 21px;
+            text-align: center;
+          }
+</style>
+
+</head>
+
+
+
+<div>
+    <div class="nav">
+        <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHEmTgLhtWj3lXQq2XA_S4OnbA4llgEDZ-Q&usqp=CAU"
+        alt="logo"
+        />
+        <div><a class="nav-link" href="{% url 'home' %}">Home</a></div>
+        <div><a class="nav-link" href="{% url 'profile' %}">Profile</a></div>
+        <div><a class="nav-link" href="{% url 'complain' %}">Complain</a></div>
+        <div><a class="nav-link" href="{% url 'troubleshoot' %}">Contact</a></div>
+        <div><a class="nav-link" href="{% url 'logout' %}">Log Out</a></div>
+        </div>   
+
+    <div class="container mt-5" style="padding: 0 5%;">   
+        <div class="heading2">
+            Troubleshoot / Contact us
+        </div>
+
+        {%for message in messages%}
+
+            <p id="messages"> {{message}} </p>
+
+        {% endfor %}
+
+        <form action="{% url 'troubleshoot' %}" method="POST" enctype="multipart/form-data" class="was-validated">
+        {% csrf_token %}
+
+        <div class="form-control mt-5">
+            <input class="form-control form-control-lg" placeholder="Full Name" name="fullname" required type="text"/><br />
+            <input class="form-control form-control-lg" placeholder="Enter NSU ID" required name="nsuid" type="number"/><br />
+            <input class="form-control form-control-lg" placeholder="Enter NSU Email" required name="email" type="email"/><br/>
+            <textarea class="form-control form-control-lg" placeholder="Comment" required name="comment" type="text"></textarea> <br/>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+                <label class="form-check-label" for="myCheck">I agree on NSU Terms & Condition.</label>
+                <div class="valid-feedback">Done!</div>
+                <div class="invalid-feedback">Click this checkbox to continue</div>
+              </div>
+        </div>
+
+            
+
+    <div class="mt-1" style="text-align: center">
+        <button
+        class="btn btn-danger mt-5"
+        style="border-radius: 16px"
+        type="submit"
+        > Submit
+        </button>
+    </div>
+
+    
+</form>
+    <hr>
+
+
+    <div class="mt-5 mb-3"
+    style="color: rgb(199, 22, 51); text-align: center"> Developed & Maintained By Office of IT, NSU
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
