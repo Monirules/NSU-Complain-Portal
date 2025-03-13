@@ -1,6 +1,6 @@
 ## Software Engineering Project - NSU Complain Portal
 
-### ‘NSU Complain Portal’ is a software where a NSU Student/Faculty can complain against anyone who is also a NSUer. 
+### ‘NSU Complain Portal’ - A software where a NSU Student/Faculty can complain. 
 ![image](https://github.com/user-attachments/assets/bce6e0e8-e1fc-4ae9-8eae-be218131aa8e)
 
 - Language: Django, HTML, CSS, Bootstrap, JS
